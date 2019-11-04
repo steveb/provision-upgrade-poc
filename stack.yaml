@@ -1,4 +1,4 @@
-heat_template_version: ocata
+heat_template_version: rocky
 
 parameters:
   ServerDeletionPolicy:
@@ -8,13 +8,13 @@ parameters:
       - allowed_values: [delete, retain]
   Image:
     type: string
-    default: CentOS-7-x86_64-GenericCloud-1804_02
+    default: overcloud-full
   Flavor:
-    default: m1.large
+    default: baremetal
     type: string
   KeyName:
     type: string
-    default: steveb
+    default: default
 
 resources:
   Server:
@@ -24,3 +24,5 @@ resources:
       image: {get_param: Image}
       flavor: {get_param: Flavor}
       key_name: {get_param: KeyName}
+      networks:
+      - network: ctlplane

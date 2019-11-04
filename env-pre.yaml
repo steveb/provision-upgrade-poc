@@ -1,8 +1,5 @@
 parameter_defaults:
   ServerDeletionPolicy: retain
-  Image: CentOS-7-x86_64-GenericCloud-1804_02
-  Flavor: m1.large
-  KeyName: steveb
 
 resource_registry:
   OS::TripleO::Server: OS::Nova::Server
